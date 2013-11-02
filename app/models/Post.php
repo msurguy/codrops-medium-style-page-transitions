@@ -43,4 +43,10 @@ class Post extends Eloquent
         return $date;
     }
 
+    public function getNextAttribute()
+    {
+        $id = self::published()->where('id', '>', $this->id)->min('id');
+        return $id;
+    }
+
 }

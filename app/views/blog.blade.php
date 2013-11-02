@@ -25,9 +25,11 @@
           initialLoad:        true,
           animationDuration:  500,
           postCount:          {{$postCount}},
-          currentPostIndex:   {{$currentPost}},
+          currentPostIndex:   {{$currentPostID}},
           postCache:          {},
           pageTemplate:       null,
+          nextPostID:         {{$nextPostID}},
+          firstPostIndex:     {{$currentPostID}}
         };
         </script>
 

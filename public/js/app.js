@@ -46,7 +46,7 @@ ArticleAnimator.getPost = function(index, callback){
 } 
 
 ArticleAnimator.nextPostIndex = function(index){
-  return (index === this.postCount) ? 1 : index + 1 
+  return (index === this.postCount+this.firstPostIndex-1) ? this.firstPostIndex : this.nextPostID 
 }
 
 ArticleAnimator.createPost = function(opts, callback){
@@ -61,6 +61,7 @@ ArticleAnimator.createPost = function(opts, callback){
 
   var index = (type == 'next') ? this.nextPostIndex( this.currentPostIndex) : this.currentPostIndex;
   this.getPost(index, function(d){
+    self.nextPostID = d.nextID;
     self.contentizeElement(self['$' + type], d);
     callback && callback();
   });
